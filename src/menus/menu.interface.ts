@@ -5,7 +5,7 @@ export class Menu {
 
   label: string;
 
-  link: string;
+  link?: string;
 
-  departament: string;
+  department: string;
 }
