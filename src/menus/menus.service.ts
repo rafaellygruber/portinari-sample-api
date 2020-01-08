@@ -1,25 +1,23 @@
 import { Injectable, HttpException } from '@nestjs/common';
 
-import { MENUS } from './menus.data';
+import { MENUS as menus } from './menus.data';
 import { Menu } from './menu.interface';
 
 @Injectable()
 export class MenusService {
 
-  menus: Array<Menu> = MENUS;
-
-  getMenus(search, department): Promise<any> {
+  getMenus(search: string, department: string): Promise<any> {
     const hasFilter = search || department;
 
-    const menus = hasFilter ? this.filterMenus(search, department) : this.menus;
+    const result = hasFilter ? this.filterMenus(search, department) : menus;
 
-    return new Promise(resolve => resolve(menus));
+    return Promise.resolve(result);
   }
 
   filterMenus(search: string, department: string) {
 
     const response = {
-      items: this.menus.filter(menu =>
+      items: menus.filter(menu =>
         this.includesMenuFilter(menu, 'label', search) ||
         this.includesMenuFilter(menu, 'department', department))
     };
@@ -28,7 +26,7 @@ export class MenusService {
   }
 
   includesMenuFilter(menu: Menu, property: string, filter: string): boolean {
-    if (!filter) return;
+    if (!filter) { return; }
 
     return menu[property].toLocaleLowerCase().includes(filter.toLocaleLowerCase());
   }

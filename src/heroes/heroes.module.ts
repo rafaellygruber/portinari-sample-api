@@ -7,4 +7,4 @@ import { HeroesService } from './heroes.service';
   controllers: [HeroesController],
   providers: [HeroesService],
 })
-export class HeroesModule {}
+export class HeroesModule { }

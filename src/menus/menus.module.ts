@@ -7,4 +7,4 @@ import { MenusService } from './menus.service';
   controllers: [MenusController],
   providers: [MenusService],
 })
-export class MenusModule {}
+export class MenusModule { }

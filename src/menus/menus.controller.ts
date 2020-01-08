@@ -4,8 +4,7 @@ import { MenusService } from './menus.service';
 
 @Controller('menus')
 export class MenusController {
-
-  constructor(private readonly menusService: MenusService) { }
+  constructor(private readonly menusService: MenusService) {}
 
   @Get()
   async getMenus(@Query('search') search, @Query('department') department) {
