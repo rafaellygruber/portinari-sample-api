@@ -27,7 +27,7 @@ export class HeroesController {
 
   @Delete()
   async deleteHero(@Query() query) {
-      const heroes = await this.heroesService.deleteHero(query.heroId);
+      const heroes = await this.heroesService.deleteHero(query);
       return heroes;
   }
 

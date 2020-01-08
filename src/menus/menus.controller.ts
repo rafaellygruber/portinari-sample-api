@@ -8,7 +8,7 @@ export class MenusController {
   constructor(private readonly menusService: MenusService) { }
 
   @Get()
-  async getBook(@Query('search') search, @Query('department') department) {
+  async getMenus(@Query('search') search, @Query('department') department) {
     return await this.menusService.getMenus(search, department);
   }
 }
